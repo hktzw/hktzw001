@@ -66,7 +66,7 @@ public class Page1Bean implements Serializable {
 
 	public String button1_action() {
 		String s = (String) field1.getValue();
-		text1.setValue("こんにちは、"+ s + "さん！");
+		text1.setValue("こんばんわ、"+ s + "さん！");
 		return "";
 	}
 	
