@@ -10,6 +10,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.component.html.*;
 
 import javax.persistence.*;
+import javax.ejb.*;
 
 import jp.gr.java_conf.hktzw.hktzw001.entity.*;
 
@@ -20,12 +21,13 @@ import jp.gr.java_conf.hktzw.hktzw001.entity.*;
 
 @ManagedBean
 @SessionScoped
+@Stateless
 public class Page2Bean implements Serializable {
 	private static final long serialVersionUID = 1L;
-//	@PersistenceUnit
-//	EntityManagerFactory emf;
-//	@PersistenceContext(unitName = "hktzw001")
-//	EntityManager manager;
+	// @PersistenceUnit
+	// EntityManagerFactory emf;
+	@PersistenceContext(unitName = "test")
+	EntityManager em;
 
 	private HtmlCommandButton button1;
 	private HtmlCommandButton button2;
@@ -125,26 +127,20 @@ public class Page2Bean implements Serializable {
 	}
 
 	public String button1_action() {
-		int i = new Integer(id.getValue().toString()).intValue();
-		int p1 = new Integer(param1.getValue().toString()).intValue();
+		Integer i = new Integer(id.getValue().toString());
+		Integer p1 = new Integer(param1.getValue().toString());
 		String p2 = (String) param2.getValue();
 		addData(i, p1, p2);
 		text1.setValue("追加しました！（" + i + "," + p1 + "," + p2 + ")");
 		return "";
 	}
 
-	public void addData(int id, int param1, String param2) {
-		EntityManagerFactory emf;
-		EntityManager manager;
-		
-		emf = Persistence.createEntityManagerFactory("hktzw001");
-		manager = emf.createEntityManager();
-		try {
-			test entity = new test(id, param1, param2);
-			manager.persist(entity);
-		} finally {
-			manager.close();
-		}
+	public void addData(Integer id, Integer param1, String param2) {
+		Test entity = new Test();
+		entity.setId(id);
+		entity.setParam1(param1);
+		entity.setParam2(param2);
+		em.persist(entity);
 	}
 
 	public String button2_action() {
@@ -155,7 +151,8 @@ public class Page2Bean implements Serializable {
 	public String getCount() {
 		// emf = Persistence.createEntityManagerFactory("hktzw001");
 		// manager = emf.createEntityManager();
-		// manager.find(Entity_test, 99);
+//		em.find(test<T>, 99);
+//		em.find(entityClass, 99);
 		return "";
 
 	}
