@@ -5,6 +5,6 @@
 	<persistence-unit name="hktzw001" transaction-type="JTA">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<jta-data-source>jdbc/__Postgresql</jta-data-source>
-		<class>jp.gr.java_conf.hktzw.hktzw001.Entity_test</class>
+		<class>jp.gr.java_conf.hktzw.hktzw001.entity.test</class>
 	</persistence-unit>
 </persistence>

@@ -9,11 +9,11 @@
 <h:body>
 	<h2>Hello, JSF!</h2>
 	<h:form>
-		<h:outputText value="お名前は？" binding="${page1Bean.text1}" />
+		<h:outputText value="お名前は？" binding="#{page1Bean.text1}" />
 		<br />
-		<h:inputText size="20" binding="${page1Bean.field1}" />
+		<h:inputText size="20" binding="#{page1Bean.field1}" />
 		<br />
-		<h:commandButton value="OK" action="${page1Bean.button1_action}" binding="${page1Bean.button1}" />
+		<h:commandButton value="OK" action="#{page1Bean.button1_action}" binding="#{page1Bean.button1}" />
 	</h:form>
 </h:body>
 </html>

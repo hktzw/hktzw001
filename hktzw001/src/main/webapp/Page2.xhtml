@@ -9,17 +9,17 @@
 <h:body>
 	<h2>Hello, JSF!</h2>
 	<h:form>
-	    <h:outputText value="入力してください" binding="${page2Bean.text1}" />
+	    <h:outputText value="入力してください" binding="#{page2Bean.text1}" />
 	    <br />
-		<h:inputText size="20" value="1" binding="${page2Bean.id}" />
+		<h:inputText size="20" value="1" binding="#{page2Bean.id}" />
 		<br />
-		<h:inputText size="20" value="2" binding="${page2Bean.param1}" />
+		<h:inputText size="20" value="2" binding="#{page2Bean.param1}" />
 		<br />
-		<h:inputText size="20" value="3" binding="${page2Bean.param2}" />
+		<h:inputText size="20" value="3" binding="#{page2Bean.param2}" />
 		<br />
-		<h:commandButton value="OK" action="${page2Bean.button1_action}" binding="${page2Bean.button1}" />
+		<h:commandButton value="OK" action="#{page2Bean.button1_action}" binding="#{page2Bean.button1}" />
 		<br />
-		<h:commandButton value="件数取得" action="${page2Bean.button2_action}" binding="${page2Bean.button2}" />
+		<h:commandButton value="件数取得" action="#{page2Bean.button2_action}" binding="#{page2Bean.button2}" />
 	</h:form>
 </h:body>
 </html>

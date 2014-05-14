@@ -11,6 +11,8 @@ import javax.faces.component.html.*;
 
 import javax.persistence.*;
 
+import jp.gr.java_conf.hktzw.hktzw001.entity.*;
+
 /**
  * @author kitazawahro
  * 
@@ -138,7 +140,7 @@ public class Page2Bean implements Serializable {
 		emf = Persistence.createEntityManagerFactory("hktzw001");
 		manager = emf.createEntityManager();
 		try {
-			Entity_test entity = new Entity_test(id, param1, param2);
+			test entity = new test(id, param1, param2);
 			manager.persist(entity);
 		} finally {
 			manager.close();
